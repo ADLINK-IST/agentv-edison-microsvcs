@@ -1,4 +1,4 @@
-# AgentV Microservices for the Intel Edison Starter Kit
+# AgentV Microservices for the Intel Edison IoT Starter Kit
 
 This repository contains a series of microservices that can be used to
 absract behind topics the sensors provided as part of the Grove B+ kit. 
