@@ -1,0 +1,9 @@
+module com { module prismtech { module edison { module led { module types {
+
+    struct LED {
+        short   id;
+        boolean on;
+    };
+    #pragma keylist LED id
+
+}; }; }; }; };

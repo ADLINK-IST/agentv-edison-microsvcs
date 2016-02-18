@@ -1,0 +1,19 @@
+module com { module prismtech { module edison { module display { module types {
+
+    struct LCDText {
+        short           id;
+        unsigned short  row;
+        unsigned short  col;
+        string          text;
+    };
+    #pragma keylist LCDText id
+
+    struct LCDColor {
+        short id;
+        short r;
+        short g;
+        short b;
+    };
+    #pragma keylist LCDColor id
+
+}; }; }; }; };

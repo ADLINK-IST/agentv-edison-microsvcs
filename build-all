@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Notice that the order matters, due to build dependencies"
+
+
+MSVC_PKGS="edison-core-types edison-grove-airquality edison-grove-luminosity edison-grove-temperature edison-lcd edison-led edison-smartled"
+
+
+for svc in ${MSVC_PKGS}
+do
+    pushd $PWD &>/dev/null
+    cd ${svc}
+    sbt package
+    popd &>/dev/null
+done

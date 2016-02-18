@@ -1,0 +1,17 @@
+module com { module prismtech { module edison { module sensor { module types {
+
+    struct AnalogSensor {
+        short           id;
+        float           rvalue;
+        float           value;
+    };
+    #pragma keylist AnalogSensor id
+
+    struct Accelerometer {
+        float[3] acceleration;
+        long[3]  rvalue;
+    };
+    #pragma keylist
+
+}; }; }; }; };
+

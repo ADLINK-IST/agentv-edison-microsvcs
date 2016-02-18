@@ -1,0 +1,1 @@
+sbt -J-Dddsi.network.interface=en1 console
