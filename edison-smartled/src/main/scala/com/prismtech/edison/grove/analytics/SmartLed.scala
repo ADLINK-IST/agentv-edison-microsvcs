@@ -17,8 +17,6 @@ import org.omg.dds.sub.Subscriber
 
 import dds.config.DefaultEntities.{defaultDomainParticipant, defaultPolicyFactory}
 
-import upm_i2clcd.Jhd1313m1
-
 import scala.collection.JavaConversions._
 
 import io.nuvo.runtime.Config.Logger
