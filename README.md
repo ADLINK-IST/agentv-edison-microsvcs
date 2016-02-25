@@ -1,5 +1,7 @@
 # AgentV Microservices for the Intel Edison IoT Starter Kit
 
+[![Build Status](https://travis-ci.org/PrismTech/agentv-edison-microsvcs.svg?branch=master)](https://travis-ci.org/PrismTech/agentv-edison-microsvcs)
+
 This repository contains a series of microservices that can be used to
 absract behind topics the sensors provided as part of the Grove B+ kit. 
 
