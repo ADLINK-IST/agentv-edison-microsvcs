@@ -26,6 +26,17 @@ The sensor currently supported are listed below:
 
 - [Servo](https://software.intel.com/en-us/iot/hardware/sensors/es08a-servo)
 
+## Edison Microservices
+A microservice controls a specific kind of sensor, display, or digital I/O. 
+
+#### Analog Sensors
+Analog sensors are connected to the edison analog imputs, those on the side of the board -- precisely on the same side of the USB ports and the power port. 
+
+The microservices that control analog sensors take two parameters, the first is the number associated to the analog port (A0, A1, ..., A3), depending on yuor set-up it could be 0, 1, 2, or 3. The second parameter is the period with which the sensor will be sampled.
+
+#### LED 
+Led are controlled via GIOP digital input/output. The digital I/O are marked on the grove mezanine with D2, D3, ... D8. When starting a microservice controlling a LED or some other enity connected to a digital I/O you simply need to provide the integer representing the I/O port, such as 2,3, ..., or 8.
+
 
 ## Freeboard
 
@@ -37,13 +48,14 @@ Edison board.
 The Topics that you can use are described below:
 
 #### Analog Sensors
-	
+
 	Topic: com/prismtech/node/edison/Temperature
 	Topic: com/prismtech/node/edison/Luminosity
 	Topic: com/prismtech/node/edison/AirQuality
 	Type: com.prismtech.edison.sensor.types.AnalogSensor
 
 #### LED 
+
 	Topic: LED
 	Type: com.prismtech.edison.led.types.LED
 	
