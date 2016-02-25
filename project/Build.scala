@@ -12,8 +12,9 @@ object EdisonMicroSvcs extends Build {
   lazy val led = Project(id = "edison-grove-led", base = file("edison-grove-led"))
 
   lazy val lum = Project(id = "edison-grove-luminosity", base = file("edison-grove-luminosity"))
+
   lazy val temp = Project(id = "edison-grove-temperature", base = file("edison-grove-temperature"))
-  lazy val smartLed = Project(id = "edison-grove-temperature"))
+
   lazy val smartLed = Project(id = "edison-smartled", base = file("edison-smartled"))
 
 }
