@@ -1,6 +1,6 @@
 name            := "edison-grove-airquality"
 
-version		:= "0.5.0-SNAPSHOT"
+version		:= "0.5.2-SNAPSHOT"
 
 organization 	:= "com.prismtech"
 
@@ -25,11 +25,11 @@ resolvers += "nuvo.io maven repo" at "http://nuvo-io.github.com/mvn-repo/snapsho
 
 resolvers += "Local Repo"at  "file://"+Path.userHome.absolutePath+"/.ivy2/local"
 
-libraryDependencies += "com.prismtech" % "agentv-microsvc_2.11" % "0.5.0-SNAPSHOT"
+libraryDependencies += "com.prismtech" % "agentv-microsvc_2.11" % "0.5.2-SNAPSHOT"
 
-libraryDependencies += "com.prismtech" % "agentv-prelude_2.11" % "0.5.0-SNAPSHOT"
+libraryDependencies += "com.prismtech" % "agentv-prelude_2.11" % "0.5.2-SNAPSHOT"
 
-libraryDependencies += "com.prismtech" % "edison-core-types_2.11" % "0.5.0-SNAPSHOT"
+libraryDependencies += "com.prismtech" % "edison-core-types_2.11" % "0.5.2-SNAPSHOT"
 
 libraryDependencies += "com.prismtech.cafe" % "cafe" % "2.2.1-SNAPSHOT"
 

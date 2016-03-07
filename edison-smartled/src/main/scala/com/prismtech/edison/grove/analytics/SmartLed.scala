@@ -51,7 +51,7 @@ class SmartLed extends Microsvc {
     logger.info("Turning off Led")
     ledOff(sensorId)
 
-    val microsvcPartition = NodePartition + File.separator + targetNode
+    val microsvcPartition = NodePartition + PartitionSeparator + targetNode
     val scope = Scope(microsvcPartition)
     implicit val (pub, sub) = scope ()
 
