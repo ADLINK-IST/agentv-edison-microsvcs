@@ -16,15 +16,18 @@ import dds.config.DefaultEntities.{defaultDomainParticipant, defaultPolicyFactor
 import upm_gas.TP401
 
 import io.nuvo.runtime.Config.Logger
-import upm_grove.GroveLight
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits._
 
 class AirQuality extends PeriodicMicrosvc {
   val logger = new Logger("AirQuality")
   val running = new AtomicBoolean(false)
+  val warm    = new AtomicBoolean(false)
   var airQuality: Option[SoftState[AnalogSensor]] = None
   var duration: Option[Duration] = None
   var airQualitySensor: Option[TP401] = None
   var sid: Option[Int] = None
+  val warmupTime = 1000 * 180 // 3 mins
 
   /**
     *  The command line for this microsvc are as follows:
@@ -57,22 +60,31 @@ class AirQuality extends PeriodicMicrosvc {
 
   override def start(): Boolean  = {
     running.getAndSet(true)
+    Future {
+      // wait three minutes and then enable the sensor
+      Thread.sleep(warmupTime)
+      warm.set(true)
+    }
     // return false as this microsvc is periodc and does not complete with start.
     false
   }
 
   override def schedule(): Unit = {
     if (running.get()) {
-      for {
-        aqs <- airQualitySensor
-        raw <- Some(aqs.getSample())
-        value <- Some(aqs.getPPM())
-        id <- sid
-        reading <- Some(new AnalogSensor(id.toShort, raw, value))
-        aq <- airQuality
-      } yield {
-        logger.info(s"($raw, $value)")
-        aq.writer.write(reading)
+      if (warm.get()) {
+        for {
+          aqs <- airQualitySensor
+          raw <- Some(aqs.getSample)
+          value <- Some(aqs.getPPM)
+          id <- sid
+          reading <- Some(new AnalogSensor(id.toShort, raw, value))
+          aq <- airQuality
+        } yield {
+          logger.info(s"($raw, $value)")
+          aq.writer.write(reading)
+        }
+      } else {
+        logger.info("AirQuality Sensor warming up to stabilise measurements.")
       }
     } else throw new IllegalAccessException("Trying to schedule a stopped microsvc")
   }
