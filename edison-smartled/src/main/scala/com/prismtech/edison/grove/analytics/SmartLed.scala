@@ -88,7 +88,7 @@ class SmartLed extends Microsvc {
 
   override def start(): Boolean = {
     if (!running.getAndSet(true)) {
-      logger.info("Starting SmartLcd")
+      logger.info("Starting SmartLed")
 
       luminosity.foreach( lum => {
         val id = lum.reader.listen {

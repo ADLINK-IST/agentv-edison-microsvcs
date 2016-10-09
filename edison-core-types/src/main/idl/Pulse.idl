@@ -1,0 +1,9 @@
+module com { module prismtech { module edison { module pulse { module types {
+
+    struct Pulse{
+        short   id;
+        long long timestamp;
+    };
+    #pragma keylist Pulse id
+
+}; }; }; }; };

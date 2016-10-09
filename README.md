@@ -51,14 +51,14 @@ The Topics that you can use are described below:
 
 #### Analog Sensors
 
-	Topic: com/prismtech/node/edison/Temperature
-	Topic: com/prismtech/node/edison/Luminosity
-	Topic: com/prismtech/node/edison/AirQuality
+	Topic: com.prismtech.node.edison/Temperature
+	Topic: com.prismtech.node.edison/Luminosity
+	Topic: com.prismtech.node.edison/AirQuality
 	Type: com.prismtech.edison.sensor.types.AnalogSensor
 
 #### LED 
 
-	Topic: LED
+	Topic: com.prismtech.node.edison/LED
 	Type: com.prismtech.edison.led.types.LED
 	
 	
